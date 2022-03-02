@@ -53,6 +53,8 @@ add `declarations.d.ts` with required values
 else typescript will complain `Cannot find module './test.svg' or its
 corresponding type declarations.`
 
+#### Refractoring the webpack files for development, production env and
+edit the `scripts` in `package.json`
 
 
 
