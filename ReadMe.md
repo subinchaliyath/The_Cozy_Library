@@ -38,6 +38,20 @@ npm i -D babel-loader
 
 ```
 - creating a `webpack.config.js` file
+- adding the `start` script in `package.json`
+
+### CSS
+
+```
+npm i -D css-loader style-loader
+```
+
+### Image / SVG 
+- asset loaders in webpack config
+add `declarations.d.ts` with required values
+
+else typescript will complain `Cannot find module './test.svg' or its
+corresponding type declarations.`
 
 
 

@@ -1,6 +1,10 @@
+import Book from './book.svg'
 function App() {
     return (
-        <div>React Typescript</div>
+        <>
+            <div>React Typescript</div>
+            <img src={Book} alt="book" width="300" />
+        </>
     )
 }
 
