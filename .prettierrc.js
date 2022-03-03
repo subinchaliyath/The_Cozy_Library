@@ -1,8 +1,18 @@
-module.exports = {
-  semi: true,
-  trailingComma: 'es5',
-  singleQuote: true,
+module.export = {
+  arrowParens: "avoid",
+  bracketSpacing: false,
+  endOfLine: "lf",
+  htmlWhitespaceSensitivity: "css",
+  insertPragma: false,
+  jsxBracketSameLine: false,
+  jsxSingleQuote: false,
   printWidth: 80,
+  proseWrap: "always",
+  quoteProps: "as-needed",
+  requirePragma: false,
+  semi: false,
+  singleQuote: true,
   tabWidth: 2,
-  endOfLine: 'auto',
+  trailingComma: "all",
+  useTabs: false,
 };
