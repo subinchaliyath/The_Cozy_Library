@@ -3,7 +3,7 @@ function App() {
     <>
       <div>React Typescript</div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
