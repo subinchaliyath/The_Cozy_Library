@@ -3,15 +3,18 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
-    'prettier',
-    'plugin:prettier/recommended',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
+    'plugin:testing-library/react',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: './tsconfig.json',
     ecmaFeatures: {
       jsx: true,
     },
@@ -27,10 +30,11 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'testing-library/no-render-in-setup': 'off',
   },
   settings: {
     react: {
       version: 'detect',
     },
   },
-}
+};
