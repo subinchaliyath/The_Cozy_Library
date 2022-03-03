@@ -110,4 +110,58 @@ Add lint script in `package.json` to fix/show lint warnings/errors in `src` fold
 "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
 ```
 
+### Prettier
+
+- eslint-config-prettier : resolve conflict
+- eslint-plugin-prettier : set prettier as ESLint rule
+
+```
+npm i -D prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+extend the `.eslintrc.js` file and also create `.prettierrc.js` file.
+
+- adding the script in `package.json`
+
+```
+"format": "prettier {*,src/*,src/**/*} --write --ignore-unknown",
+```
+
+---
+
+Tip: `Ctrl+ ,` opens VSCode settings, search for format on save and enable.
+
+### [Lint Staged](https://www.npmjs.com/package/lint-staged?activeTab=readme)
+
+```
+npx mrm@2 lint-staged
+```
+
+To change `npx lint-staged` to `npm run lint-staged` in `.husky\pre-commit`
+
+```
+npm i -D lint-staged prettier
+```
+
+modify `package.json`
+
+- `scripts`
+
+```
+"lint-staged": "lint-staged",
+"prettier": "prettier {*,src/*,src/**/*} --write --ignore-unknown"
+```
+
+- `lint-staged`
+
+```
+"lint-staged": {
+    "*.(tsx|ts)": "eslint --cache --fix",
+    "*": "prettier --write --ignore-unknown"
+  }
+```
+
+after above setup, if we commit code it should check lint and format
+automatically.
+
 [React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup)
