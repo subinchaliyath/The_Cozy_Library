@@ -23,15 +23,14 @@ type Book = {
 const HomeScreen = () => {
   const [books, setBooks] = useState<Book[] | []>([])
   useEffect(() => {
-    async function getData() {
+    void (async () => {
       try {
         const { data } = await request.get<Book[]>('/data')
         setBooks(data)
       } catch (error: unknown) {
         console.log(error)
       }
-    }
-    void getData()
+    })()
   }, [])
   return (
     <>
