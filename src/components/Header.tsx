@@ -101,9 +101,6 @@ const Header: React.FC = () => {
           <NavItems>
             <Link to="/profile">Profile</Link>
           </NavItems>
-          <NavItems>
-            <Link to="/profile">Add</Link>
-          </NavItems>
         </Ul>
       </Nav>
     </header>

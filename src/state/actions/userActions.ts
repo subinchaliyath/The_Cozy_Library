@@ -1,8 +1,9 @@
 import { Dispatch } from 'redux'
 
 import { GetUserDetailsActionType } from '../actionTypes'
-import { GetUserDetailsAction, UserDetails } from '../actionModels'
+import { GetUserDetailsAction } from '../actionModels'
 import request from '../../api'
+import { UserDetails } from '../../models'
 
 export const getUserDetails =
   () => async (dispatch: Dispatch<GetUserDetailsAction>) => {

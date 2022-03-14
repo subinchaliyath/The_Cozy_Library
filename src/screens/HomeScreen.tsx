@@ -4,6 +4,8 @@ import styled from '@emotion/styled'
 import Book from '../components/Book'
 import { mobile } from '../styles/media-queries'
 import request from '../api'
+import AddBookForm from '../components/AddBookForm'
+import { useTypedSelector } from '../hooks/useTypedSelector'
 
 const Section = styled.section`
   display: flex;
@@ -22,6 +24,9 @@ type Book = {
 
 const HomeScreen = () => {
   const [books, setBooks] = useState<Book[] | []>([])
+  const [showAddBook, setShowAddBook] = useState(false)
+  const { data } = useTypedSelector(state => state.addBook)
+
   useEffect(() => {
     void (async () => {
       try {
@@ -31,10 +36,12 @@ const HomeScreen = () => {
         console.log(error)
       }
     })()
-  }, [])
+  }, [data])
 
   return (
     <>
+      <button onClick={() => setShowAddBook(true)}>Add Book</button>
+      {showAddBook && <AddBookForm />}
       <Section>
         {books?.map(book => (
           <Book key={book.id} book={book} />

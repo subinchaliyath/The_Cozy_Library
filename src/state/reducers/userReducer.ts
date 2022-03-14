@@ -1,6 +1,6 @@
 import { GetUserDetailsAction } from '../actionModels'
 import { GetUserDetailsActionType } from '../actionTypes'
-import { UsersState } from '../../models/user'
+import { UsersState } from '../../models'
 
 const initialState = {
   data: null,

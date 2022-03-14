@@ -1,0 +1,5 @@
+export enum AddBookActionType {
+  ADD_BOOK_REQUEST = 'ADD_BOOK_REQUEST',
+  ADD_BOOK_SUCCESS = 'ADD_BOOK_SUCCESS',
+  ADD_BOOK_FAIL = 'ADD_BOOK_FAIL',
+}

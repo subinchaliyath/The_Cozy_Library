@@ -1,6 +1,6 @@
 import { GetUserDetailsActionType } from '../actionTypes'
 
-import { UserDetails } from '../../models/user'
+import { UserDetails } from '../../models'
 
 interface GetUserDetailsRequestAction {
   type: GetUserDetailsActionType.USER_DETAILS_REQUEST
