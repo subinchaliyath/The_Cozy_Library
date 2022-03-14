@@ -1,10 +1,6 @@
 import { GetUserDetailsActionType } from '../actionTypes'
 
-export interface UserDetails {
-  email: string
-  id: string
-  name: string
-}
+import { UserDetails } from '../../models/user'
 
 interface GetUserDetailsRequestAction {
   type: GetUserDetailsActionType.USER_DETAILS_REQUEST

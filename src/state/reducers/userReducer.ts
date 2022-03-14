@@ -1,12 +1,7 @@
-import { GetUserDetailsAction, UserDetails } from '../actionModels'
+import { GetUserDetailsAction } from '../actionModels'
 import { GetUserDetailsActionType } from '../actionTypes'
+import { UsersState } from '../../models/user'
 
-interface UsersState {
-  data: UserDetails | null
-  error: string[] | null
-  loading: boolean
-  success?: boolean
-}
 const initialState = {
   data: null,
   error: null,
