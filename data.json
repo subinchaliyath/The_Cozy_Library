@@ -1,45 +1,29 @@
 {
   "data": [
     {
-      "name": "Rich Dad Poor Dad ",
-      "author": "ROBERT T KIYOSAKI",
-      "img": "https://rukminim1.flixcart.com/image/416/416/kzn17680/regionalbooks/z/q/v/rich-dad-poor-dad-english-paperback-english-original-imagbhuvraunzgva.jpeg?q=70",
+      "name": "The Psychology of Money ",
+      "author": {
+        "name": "morgan housel"
+      },
+      "img": "https://rukminim1.flixcart.com/image/612/612/kjom6q80-0/regionalbooks/o/i/t/the-psychology-of-money-original-imafvb5vbgcczykj.jpeg?q=70",
+      "price": "175",
       "id": 1
     },
     {
-      "name": "Rich Dad Poor Dad ",
-      "author": "ROBERT T KIYOSAKI",
-      "img": "https://rukminim1.flixcart.com/image/416/416/kzn17680/regionalbooks/z/q/v/rich-dad-poor-dad-english-paperback-english-original-imagbhuvraunzgva.jpeg?q=70",
+      "name": "Ikigai",
+      "author": {
+        "name": "Mitsuhashi Yukari"
+      },
+      "img": "https://rukminim1.flixcart.com/image/416/416/kirr24w0-0/book/y/x/x/ikigai-original-imafyhr2yd7vuhyy.jpeg?q=70",
+      "price": "245",
       "id": 2
-    },
-    {
-      "name": "asdfdsfg",
-      "author": "gfdgfd",
-      "img": "fdgfdgfdgfd",
-      "id": 3
-    },
-    {
-      "name": "rt",
-      "author": "ghjgj",
-      "img": "hgjhgj",
-      "id": 4
-    },
-    {
-      "name": "dsfgsdg",
-      "author": "gfdghfd",
-      "img": "fdgdfgfd",
-      "id": 5
-    },
-    {
-      "name": "fdgfdhff",
-      "author": "gfhgfjghjgh",
-      "img": "ghjghjghj",
-      "id": 6
     }
   ],
   "user": {
-    "id": 1,
-    "name": "subin",
-    "email": "subinchaliyath@gmail.com"
+    "name": "Subin",
+    "email": "subinchaliyath@gmail.com",
+    "address": "",
+    "mobile": "",
+    "id": 1
   }
 }

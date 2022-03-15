@@ -1,4 +1,7 @@
-import { GetUserDetailsActionType } from '../actionTypes'
+import {
+  GetUserDetailsActionType,
+  UpdateUserDetailsActionType,
+} from '../actionTypes'
 
 import { UserDetails } from '../../models'
 
@@ -20,3 +23,21 @@ export type GetUserDetailsAction =
   | GetUserDetailsRequestAction
   | GetUserDetailsSuccessAction
   | GetUserDetailsFailAction
+interface UpdateUserDetailsRequestAction {
+  type: UpdateUserDetailsActionType.UPDATE_USER_REQUEST
+}
+
+interface UpdateUserDetailsSuccessAction {
+  type: UpdateUserDetailsActionType.UPDATE_USER_SUCCESS
+  payload: UserDetails
+}
+
+interface UpdateUserDetailsFailAction {
+  type: UpdateUserDetailsActionType.UPDATE_USER_FAIL
+  payload: string[] | null
+}
+
+export type UpdateUserDetailsAction =
+  | UpdateUserDetailsRequestAction
+  | UpdateUserDetailsSuccessAction
+  | UpdateUserDetailsFailAction

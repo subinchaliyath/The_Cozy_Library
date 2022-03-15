@@ -1,13 +1,19 @@
 export interface BookDetails {
   id: string
-  author: string
+  author: {
+    name: string
+  }
   name: string
   img: string
+  price: number
 }
 export interface Book {
-  author: string
+  author: {
+    name: string
+  }
   name: string
   img: string
+  price: number
 }
 
 export interface BookState {

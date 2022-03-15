@@ -2,6 +2,8 @@ export interface UserDetails {
   email: string
   id: string
   name: string
+  mobile?: number | null
+  address?: string
 }
 
 export interface UsersState {

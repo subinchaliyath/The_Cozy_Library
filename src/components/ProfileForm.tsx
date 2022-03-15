@@ -1,16 +1,19 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { useDispatch } from 'react-redux'
 import styled from '@emotion/styled'
 import * as Yup from 'yup'
-import { addBook } from '../state/actions'
 import { brand, warning, dark, light } from '../styles/colors'
-import close from '../assets/images/close.svg'
+import closeIcon from '../assets/images/close.svg'
+import editIcon from '../assets/images/edit.svg'
+import { UserDetails } from '../models'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { updateUserDetails } from '../state/actions/userActions'
 
 type ContainerProps = {
   active: boolean
 }
-type AddBookProps = {
-  setShowAddBook: (a: boolean) => void
+type ProfileProps = {
+  userData: UserDetails
 }
 const Container = styled.div<ContainerProps>`
   position: relative;
@@ -22,7 +25,7 @@ const Container = styled.div<ContainerProps>`
     padding: 1.5rem 0.75rem 0.5rem;
     box-shadow: inset 0 0 0.5rem rgba(26, 26, 44, 0.05);
     outline: none;
-    width: 20rem;
+    width: 100%;
     font-weight: 700;
     transition: all 0.2s;
     -webkit-appearance: none;
@@ -63,7 +66,7 @@ const Container = styled.div<ContainerProps>`
 `
 const FormContainer = styled.div`
   position: relative;
-  margin: 5rem 3rem 3rem;
+  margin: 1rem 3rem 3rem;
   padding: 2rem 1rem;
   background: #fff;
   border-radius: 0.5rem;
@@ -95,77 +98,68 @@ const Title = styled.h3`
   text-align: center;
 `
 
-const AddBookForm = ({ setShowAddBook }: AddBookProps) => {
+const ProfileForm = ({ userData }: ProfileProps) => {
+  const [edit, setEdit] = useState(false)
   const dispatch = useDispatch()
-
   return (
     <FormContainer>
       <CloseIcon
-        src={close}
+        src={edit ? closeIcon : editIcon}
         alt="close"
-        onClick={() => setShowAddBook(false)}
+        onClick={() => setEdit(!edit)}
       />
-      <Title>Add Book</Title>
+      <Title>Personal Information </Title>
       <Formik
-        initialValues={{ bookName: '', author: '', imgURL: '', price: 1 }}
+        initialValues={{
+          name: userData.name,
+          email: userData.email,
+          address: userData.address || '',
+          mobile: userData.mobile,
+        }}
         validationSchema={Yup.object({
-          bookName: Yup.string().required('Required'),
-          author: Yup.string()
-            .max(20, 'Must be 20 characters or less')
-            .required('Required'),
-          imgURL: Yup.string().required('Required'),
-          price: Yup.string().required('Required'),
+          name: Yup.string().required('Required'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          const { bookName, author, imgURL, price } = values
-          dispatch(
-            addBook({
-              name: bookName,
-              author: { name: author },
-              img: imgURL,
-              price,
-            }),
-          )
+          dispatch(updateUserDetails({ ...values, id: userData.id }))
+          setEdit(false)
           setSubmitting(false)
-          setShowAddBook(false)
         }}
       >
         {({ values }) => (
           <Form>
-            <Container active={Boolean(values.bookName)}>
-              <Field name="bookName" id="bookName" type="text" />
-              <label htmlFor="bookName">Book Name</label>
+            <Container active={Boolean(values.name)}>
+              <Field name="name" id="name" type="text" disabled={!edit} />
+              <label htmlFor="name">Name</label>
               <p>
-                <ErrorMessage name="bookName" />
+                <ErrorMessage name="name" />
               </p>
             </Container>
-            <Container active={Boolean(values.author)}>
-              <Field name="author" id="author" type="text" />
-              <label htmlFor="author">Author</label>
+            <Container active={Boolean(values.email)}>
+              <Field name="email" id="email" type="text" disabled={true} />
+              <label htmlFor="email">Email</label>
               <p>
-                <ErrorMessage name="author" />
+                <ErrorMessage name="email" />
               </p>
             </Container>
-            <Container active={Boolean(values.imgURL)}>
-              <Field name="imgURL" id="imgURL" type="text" />
-              <label htmlFor="imgURL">Image URL</label>
+            <Container active={Boolean(values.mobile)}>
+              <Field name="mobile" id="mobile" type="number" disabled={!edit} />
+              <label htmlFor="mobile">Mobile</label>
               <p>
-                <ErrorMessage name="imgURL" />
+                <ErrorMessage name="mobile" />
               </p>
             </Container>
-            <Container active={Boolean(values.price)}>
-              <Field name="price" id="price" type="text" />
-              <label htmlFor="price">Price</label>
+            <Container active={Boolean(values.address)}>
+              <Field name="address" id="address" type="text" disabled={!edit} />
+              <label htmlFor="address">Address</label>
               <p>
-                <ErrorMessage name="price" />
+                <ErrorMessage name="address" />
               </p>
             </Container>
-
-            <Button type="submit">Submit</Button>
+            {edit && <Button type="submit">Submit</Button>}
           </Form>
         )}
       </Formik>
     </FormContainer>
   )
 }
-export default AddBookForm
+export default ProfileForm
