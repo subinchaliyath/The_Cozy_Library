@@ -28,7 +28,8 @@ const Ul = styled.ul`
 `
 const NavItems = styled.li`
   a {
-    color: ${light};
+    color: ${brand};
+    font-weight: 600;
   }
 `
 const Toggler = styled.span`
