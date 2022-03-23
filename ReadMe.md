@@ -166,4 +166,72 @@ modify `package.json`
 after above setup, if we commit code it should check lint and format
 automatically.
 
+# React Testing Library (Beta Documentation)
+
+```
+npm install -D jest
+
+```
+
+### ts-jest
+
+A Jest transformer with source map support that lets you use Jest to test
+projects written in TypeScript.
+
+```
+npm i -D ts-jest @types/jest
+
+```
+
+### Adding Jest config file
+
+```
+npx ts-jest config:init
+```
+
+The `jest.config.js` will have content like,
+
+```
+
+module.exports = { preset: 'ts-jest', testEnvironment: 'jsdom', };
+
+```
+
+##### Adding test script in package.json (for npm run test)
+
+```
+"test":"jest"
+```
+
+### [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+
+```
+npm i -D  @testing-library/react @testing-library/dom @testing-library/jest-dom @testing-library/user-event
+
+```
+
+### ESLint testing configuration packages
+
+```
+npm i -D eslint-plugin-jest eslint-plugin-testing-library --save-dev
+```
+
+- `testEnvironment: "node"` to `testEnvironment: "jsdom"` in `jest.config.js` to
+  stimulate dom for testing.
+
+- #### [setupFilesAfterEnv](https://jestjs.io/docs/configuration#setupfilesafterenv-array)
+  running some code immediately after the test framework has been installed in
+  the environment but before the test code itself.
+
+```
+// jest.config.js
+module.exports = {
+  // {...}
+  setupFilesAfterEnv: ['./src/jest.setup.ts'],
+};
+```
+
+and create add `import '@testing-library/jest-dom'` in `['./src/jest.setup.ts']`
+file.
+
 [React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup)
