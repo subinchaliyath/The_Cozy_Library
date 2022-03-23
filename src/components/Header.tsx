@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'react-router-dom'
 
-import { brand, light, lightdark } from '../styles/colors.js'
+import { brand, light, lightdark } from '../styles/colors'
 import { largeScreen, mobile } from '../styles/media-queries.js'
 
 const Brand = styled.h1`
