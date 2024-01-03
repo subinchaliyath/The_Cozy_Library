@@ -24,7 +24,7 @@ React Project from Scratch (Without CRA)
 ### [Configuring Babel](https://babeljs.io/docs/en/presets/)
 
 ```
-npm i -D @babel/core @babel/preset-env  @babel/preset-react @babel/preset-typescript
+npm i -D @babel/core @babel/preset-env  @babel/preset-react @babel/preset-typescript @babel/plugin-transform-runtime
 ```
 
 - creating `.babelrc`
